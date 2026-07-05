@@ -1,0 +1,22 @@
+services:
+  qdrant-openloop:
+    image: qdrant/qdrant:v1.4.0
+    container_name: qdrant-openloop
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./qdrant_data:/qdrant/storage
+    restart: unless-stopped
+  
+  postgres:
+    image: postgres:15
+    container_name: postgres-openloop
+    environment:
+      POSTGRES_USER: openloop_user
+      POSTGRES_PASSWORD: openloop_password
+      POSTGRES_DB: openloop_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
