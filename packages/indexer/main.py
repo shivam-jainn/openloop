@@ -1,5 +1,5 @@
 def main():
-    print("Hello from openloop!")
+    print("Hello from indexer!")
 
 
 if __name__ == "__main__":
